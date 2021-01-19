@@ -6,7 +6,8 @@
     <H2> Przedmiot: </H2>
     <?PHP
       echo "<BR><A HREF=\"index.php\">Wyczyść<A><BR>\n";
-      $conn = oci_connect("","","//labora.mimuw.edu.pl/LABS");
+      include('config.php');
+      $conn = oci_connect($dblogin,$dbpassword,"//labora.mimuw.edu.pl/LABS");
       if (!$conn) {
       	echo "oci_connect failed\n";
       	$e = oci_error();
@@ -33,7 +34,6 @@
       while (($row = oci_fetch_array($stmt, OCI_BOTH))) {
         echo "<BR><A HREF=\"ksiazki.php?subj=".$row['ID'].$cl.$wyd.$typ.$aut."\">".$row['NAME']."<A><BR>\n";
       }
-      echo "<BR><A HREF=\"login.html\">Zaloguj<A><BR>\n";
     ?>
   </BODY>
 </HTML>

@@ -4,8 +4,14 @@
   </HEAD>
   <BODY>
     <H2> Wybierz: </H2>
-    <BR><A HREF="index.php">Wyczyść<A><BR>
     <?PHP
+    session_start();
+    $logn = "";
+    if(isset($_SESSION['logn'])){
+      $logn = $_SESSION['logn'];
+      if($logn != "") echo $logn."<br>";
+    }
+    echo "<BR><A HREF=\"index.php\">Wyczyść<A><BR>";
     $sj = "";
     $wyd = "";
     $typ = "";
@@ -26,12 +32,20 @@
     if(isset($_GET["class"])) {
       $cl = "&class=".$_GET["class"];
     }
-    echo "<BR><A HREF=\"login.html\">Zaloguj<A><BR>";
     echo "<BR><A HREF=\"przedmioty.php?".$sj.$wyd.$typ.$aut.$cl."\">Przedmiot<A><BR>";
     echo "<BR><A HREF=\"klasy.php?".$sj.$wyd.$typ.$aut.$cl."\">klasa<A><BR>";
     echo "<BR><A HREF=\"wydawnictwa.php?".$sj.$wyd.$typ.$aut.$cl."\">Wydawnictwo<A><BR>";
     echo "<BR><A HREF=\"autorzy.php?".$sj.$wyd.$typ.$aut.$cl."\">Autorzy<A><BR>";
     echo "<BR><A HREF=\"typy.php?".$sj.$wyd.$typ.$aut.$cl."\">Typ książki<A><BR>";
+    if ($logn != "") {
+      echo "<BR><A HREF=\"dodajksiazkeform.php\">Dodaj nową książkę<A><BR>";
+      echo "<BR><A HREF=\"user.php\">Moje konto<A><BR>\n";
+      echo "<BR><A HREF=\"logout.php\">Wyloguj<A><BR>\n";
+    }
+    else {
+      echo "<BR><A HREF=\"login.html\">Zaloguj<A><BR>\n";
+      echo "<BR><A HREF=\"register.html\">Zarejestruj<A><BR>\n";
+    }
     ?>
   </BODY>
 </HTML>

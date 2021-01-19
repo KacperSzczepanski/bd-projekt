@@ -3,10 +3,12 @@
     <TITLE> Podręczniki - przedmioty </TITLE>
   </HEAD>
   <BODY>
-    <H2> Przedmiot: </H2>
+    <H2> Autorzy: </H2>
     <?PHP
+      include ("config.php");
+      echo $dblogin;
+      $conn = oci_connect($dblogin,$dbpassword,"//labora.mimuw.edu.pl/LABS");
       echo "<BR><A HREF=\"index.php\">Wyczyść<A><BR>\n";
-      $conn = oci_connect("","","//labora.mimuw.edu.pl/LABS");
       if (!$conn) {
       	echo "oci_connect failed\n";
       	$e = oci_error();
@@ -33,7 +35,6 @@
       while (($row = oci_fetch_array($stmt, OCI_BOTH))) {
         echo "<BR><A HREF=\"ksiazki.php?author=".$row['ID'].$sj.$wyd.$typ.$cl."\">".$row['NAME']."<A><BR>\n";
       }
-      echo "<BR><A HREF=\"login.html\">Zaloguj<A><BR>\n";
     ?>
   </BODY>
 </HTML>
