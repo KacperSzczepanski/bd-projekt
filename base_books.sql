@@ -62,7 +62,8 @@ CREATE TABLE books (
     lev NUMBER(2) REFERENCES levels,
     type NUMBER(2) NOT NULL REFERENCES book_types,
     class NUMBER(2) REFERENCES class_levels,
-    pub NUMBER(6) NOT NULL REFERENCES publish_house
+    pub NUMBER(6) NOT NULL REFERENCES publish_house,
+    added_by VARCHAR2(15) NOT NULL REFERENCES users_tab
 );
 
 CREATE TABLE auth_book (
@@ -88,10 +89,11 @@ CREATE TABLE mist (
 
 CREATE TABLE ratetab (
     id NUMBER(10) PRIMARY KEY,
-    ratetype NUMBER(1) NOT NULL, --1 - ocena, 2- poz. trud.
-    val NUMBER(2) NOT NULL CHECK (val >= 0 AND val <= 10),
+    rateval NUMBER(2) CHECK ((rateval >= 0 AND rateval <= 10) OR rateval IS NULL),
+    difficval NUMBER(2) CHECK ((difficval >= 0 AND difficval <= 10) OR difficval IS NULL),
     book NUMBER(10) NOT NULL REFERENCES books,
     userlog VARCHAR2(15) NOT NULL REFERENCES users_tab,
     descr LONG,
-    CONSTRAINT usbo UNIQUE (book, userlog, ratetype)
+    CONSTRAINT usbo UNIQUE (book, userlog),
+    CONSTRAINT col CHECK (rateval IS NOT NULL OR difficval IS NOT NULL)
 );

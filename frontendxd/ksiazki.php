@@ -19,7 +19,7 @@
               (SELECT T.btype FROM book_types T WHERE T.id = B.type) b_typ,
               (SELECT C.name FROM class_levels C WHERE C.id = B.class) b_class,
               (SELECT P.name FROM publish_house P WHERE P.id = B.pub) b_pub,
-              (SELECT AVG(R.val) FROM ratetab R WHERE R.book = B.id AND R.ratetype = 1 GROUP BY B.id) b_rate FROM books B";
+              (SELECT AVG(R.rateval) FROM ratetab R WHERE R.book = B.id GROUP BY B.id) b_rate FROM books B";
       $sj = "";
       $wyd = "";
       $typ = "";

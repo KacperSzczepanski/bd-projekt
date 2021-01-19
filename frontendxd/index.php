@@ -4,7 +4,7 @@
   </HEAD>
   <BODY>
     <H2> Wybierz: </H2>
-    <BR><A HREF=\"index.php\">Wyczyść<A><BR>
+    <BR><A HREF="index.php">Wyczyść<A><BR>
     <?PHP
     $sj = "";
     $wyd = "";

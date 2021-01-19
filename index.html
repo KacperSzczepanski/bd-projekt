@@ -1,0 +1,42 @@
+<HTML>
+
+<HEAD>
+    <TITLE> Podręczniki </TITLE>
+</HEAD>
+
+<BODY>
+    <H2> Wybierz: </H2>
+    <BR>
+    <A HREF="login.html">Zaloguj<A><BR>
+    <BR><A HREF="przedmioty.php">Przedmiot<A><BR>
+    <BR><A HREF="klasy.php">klasa<A><BR>
+    <BR><A HREF="wydawnictwa.php">Wydawnictwo<A><BR>
+    <BR><A HREF="autorzy.php">Autorzy<A><BR>
+    <BR><A HREF="typy.php">Typ książki<A><BR>
+
+      <form action="dodajksiazke.php" method="POST">
+        Nazwa książki: <INPUT type="text" name="nazwa" placeholder="Algebra z *"><br>
+        Autorzy: <INPUT type="test" name="autorzy" placeholder="Jan Kowalski, Tomasz Nowak"><br>
+        Wydawnictwo: <input type="text" name="wydawnictwo" placeholder="wydawnictwo MIMUW"><br>
+        Przedmiot: <input type="text" name="przedmiot" placeholder="GAL"><br>
+        Rodzaj książki:<br>
+        <input type="radio" id="podrecznik" name="rodzajksiazki" value="podrecznik">
+        <label for="podrecznik">Podręcznik</label><br>
+        <input type="radio" id="cwiczenia" name="rodzajksiazki" value="cwiczenia">
+        <label for="cwiczenia">Ćwiczenia</label><br>
+        <input type="radio" id="zbiorzadan" name="rodzajksiazki" value="zbiorzadan">
+        <label for="zbiorzadan">Zbiór zadań</label><br>
+        <input type="radio" id="zzkonkursowych" name="rodzajksiazki" value="zzkonkursowych">
+        <label for="zzkonkursowych">Zbiór zadań konkursowych</label><br>
+        <input type="radio" id="repetytorium" name="rodzajksiazki" value="repetytorium">
+        <label for="repetytorium">Repetytorium</label><br>
+        Rok nauczania: <input type="number" name="roknauczania" min="1" max="12" placeholder="13"><br>
+        Ocena: <input type="number" name="ocena" min="0" max="10" placeholder="10"><br>
+        Rok wydania:<input type="number" name="rokwydania" min="1900" placeholder="2025"><br>
+        Poziom trudności:<input type="number" name="poziomtrudnosci" min="1" max="100" placeholder="100"><br>
+        Cena:<input type="number" name="cena" min="0.01" placeholder="21.37"><br>
+        <!--Zdjęcie: <input type="file" name="zdjecie"><br>-->
+        <input type="submit" value="Dodaj">
+      </form>
+  </BODY>
+</HTML>
