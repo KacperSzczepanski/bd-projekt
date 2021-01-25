@@ -94,6 +94,11 @@
   <BODY class="bodyIndex">
     <nav class="navbar bg-dark navbar-dark">
       <?PHP
+        session_start();
+        $logn = "";
+        if(isset($_SESSION['logn'])){
+          $logn = $_SESSION['logn'];
+        }
         if ($logn != "") {
           echo "<span class=\"navbar-brand\">Zalogowano jako ".$logn."</span>";
         } else {

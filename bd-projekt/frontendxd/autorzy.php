@@ -93,6 +93,12 @@
   </HEAD>
   <BODY class="bodyIndex">
     <?PHP
+      session_start();
+      $logn = "";
+      if(isset($_SESSION['logn'])){
+        $logn = $_SESSION['logn'];
+      }
+
       include ("config.php");
       $conn = oci_connect($dblogin,$dbpassword,"//labora.mimuw.edu.pl/LABS");
       if (!$conn) {
