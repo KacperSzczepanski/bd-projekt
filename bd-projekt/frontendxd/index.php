@@ -162,11 +162,13 @@
     <div class="menu40 container">
       <h2>Zastosuj filtry</h2>
         <a href="index.php"><h3>Wyczyść</h3></a><br>
-        <a href="przedmioty.php"><h3>Przedmiot</h3></a><br>
-        <a href="klasy.php"><h3>Klasa</h3></a><br>
-        <a href="wydawnictwa.php"><h3>Wydawnictwo</h3></a><br>
-        <a href="autorzy.php"><h3>Autorzy</h3></a><br>
-        <a href="typy.php"><h3>Typ książki</h3></a><br>
+        <?PHP 
+          echo "<a href=\"przedmioty.php?".$sj.$wyd.$typ.$aut.$cl."\"><h3>Przedmiot</h3></a><br>";
+          echo "<a href=\"klasy.php?".$sj.$wyd.$typ.$aut.$cl."\"><h3>Klasa</h3></a><br>";
+          echo "<a href=\"wydawnictwa.php?".$sj.$wyd.$typ.$aut.$cl."\"><h3>Wydawnictwo</h3></a><br>";
+          echo "<a href=\"autorzy.php?".$sj.$wyd.$typ.$aut.$cl."\"><h3>Autorzy</h3></a><br>";
+          echo "<a href=\"typy.php?".$sj.$wyd.$typ.$aut.$cl."\"><h3>Typ książki</h3></a><br> ";
+        ?>
     </div>
 
     <div style="width: 100%; height: 25px"></div>
