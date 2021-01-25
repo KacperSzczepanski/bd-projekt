@@ -1,6 +1,5 @@
 DROP TABLE ratetab;
 DROP TABLE mist;
-DROP TABLE bookedition;
 DROP TABLE auth_book;
 DROP TABLE books;
 DROP TABLE class_levels;
@@ -28,22 +27,22 @@ CREATE TABLE users_tab (
     login VARCHAR2(15) PRIMARY KEY,
     pwd VARCHAR2(255) NOT NULL,
     name VARCHAR2(30),
-    email VARCHAR2(30) NOT NULL CHECK (email LIKE '%_@__%.__%'),
+    email VARCHAR2(40) NOT NULL CHECK (email LIKE '%_@__%.__%'),
     descr LONG
 );
 
 CREATE TABLE publish_house (
     id NUMBER(6) DEFAULT seq_publ.nextval PRIMARY KEY,
-    name VARCHAR2(30) NOT NULL,
-    address VARCHAR2(40) NOT NULL,
-    email VARCHAR2(30) NOT NULL CHECK (email LIKE '%_@__%.__%'),
+    name VARCHAR2(50) NOT NULL,
+    address VARCHAR2(100) NOT NULL,
+    email VARCHAR2(40) NOT NULL CHECK (email LIKE '%_@__%.__%'),
     phone NUMBER(9),
     added_by VARCHAR2(15) NOT NULL REFERENCES users_tab
 );
 
 CREATE TABLE author (
     id NUMBER(6) DEFAULT seq_auth.nextval PRIMARY KEY,
-    name VARCHAR2(30)
+    name VARCHAR2(100)
 );
 
 CREATE TABLE subject (
@@ -68,7 +67,7 @@ CREATE TABLE class_levels (
 
 CREATE TABLE books (
     id NUMBER(10) DEFAULT seq_books.nextval PRIMARY KEY,
-    name VARCHAR2(30) NOT NULL,
+    name VARCHAR2(50) NOT NULL,
     subj NUMBER(3) NOT NULL REFERENCES subject,
     lev NUMBER(2) REFERENCES levels,
     type NUMBER(2) NOT NULL REFERENCES book_types,
@@ -123,24 +122,50 @@ INSERT INTO book_types VALUES (5, 'Repetytorium');
 INSERT INTO levels VALUES (1, 'Zakres podstawowy');
 INSERT INTO levels VALUES (2, 'Zakres rozszerzony');
 
-INSERT INTO class_levels VALUES (1, '1 SP');
-INSERT INTO class_levels VALUES (2, '2 SP');
-INSERT INTO class_levels VALUES (3, '3 SP');
-INSERT INTO class_levels VALUES (4, '4 SP');
-INSERT INTO class_levels VALUES (5, '5 SP');
-INSERT INTO class_levels VALUES (6, '6 SP');
-INSERT INTO class_levels VALUES (7, '7 SP');
-INSERT INTO class_levels VALUES (8, '8 SP');
-INSERT INTO class_levels VALUES (9, '1 LO');
-INSERT INTO class_levels VALUES (10, '2 LO');
-INSERT INTO class_levels VALUES (11, '3 LO');
-INSERT INTO class_levels VALUES (12, '4 LO');
-INSERT INTO class_levels VALUES (13, '1 TE');
-INSERT INTO class_levels VALUES (14, '2 TE');
-INSERT INTO class_levels VALUES (15, '3 TE');
-INSERT INTO class_levels VALUES (16, '4 TE');
-INSERT INTO class_levels VALUES (17, '5 TE');
-INSERT INTO class_levels VALUES (18, '1 SZ');
-INSERT INTO class_levels VALUES (19, '2 SZ');
-INSERT INTO class_levels VALUES (20, '3 SZ');
+INSERT INTO class_levels VALUES (1, 'Szkola podstawowa 1');
+INSERT INTO class_levels VALUES (2, 'Szkola podstawowa 2');
+INSERT INTO class_levels VALUES (3, 'Szkola podstawowa 3');
+INSERT INTO class_levels VALUES (4, 'Szkola podstawowa 4');
+INSERT INTO class_levels VALUES (5, 'Szkola podstawowa 5');
+INSERT INTO class_levels VALUES (6, 'Szkola podstawowa 6');
+INSERT INTO class_levels VALUES (7, 'Szkola podstawowa 7');
+INSERT INTO class_levels VALUES (8, 'Szkola podstawowa 8');
+INSERT INTO class_levels VALUES (9, 'Liceum 1');
+INSERT INTO class_levels VALUES (10, 'Liceum 2');
+INSERT INTO class_levels VALUES (11, 'Liceum 3');
+INSERT INTO class_levels VALUES (12, 'Liceum 4');
+INSERT INTO class_levels VALUES (13, 'Technikum 1');
+INSERT INTO class_levels VALUES (14, 'Technikum 2');
+INSERT INTO class_levels VALUES (15, 'Technikum 3');
+INSERT INTO class_levels VALUES (16, 'Technikum 4');
+INSERT INTO class_levels VALUES (17, 'Technikum 5');
+INSERT INTO class_levels VALUES (18, 'Szkola zawodowa 1');
+INSERT INTO class_levels VALUES (19, 'Szkola zawodowa 2');
+INSERT INTO class_levels VALUES (20, 'Szkola zawodowa 3');
+
+--dane
+
+INSERT INTO users_tab VALUES ('admin', '$2y$10$/2x4WPlghOUi8WKJFksGYes0Xkl6YgyIcGwACV6FzF.5Lt/uZOrP.', 'Jeff', 'email@testowy.sql', 'konto testowe');
+
+INSERT INTO publish_house VALUES (10, 'Oficyna Edukacyjna * Krzysztof Pazdro', 'ul. Koscianska 4, 01-695 Warszawa', 'handlowy@pazdro.com.pl', 225608116, 'admin');
+INSERT INTO publish_house VALUES (11, 'WSiP Wydawnictwo Szkolne i Pedagogiczne', 'al. Jerozolimskie 96, 02-017 Warszawa', 'wsip@wsip.com.pl', 801220555, 'admin');
+
+INSERT INTO author VALUES (10, 'Opracowanie Zbiorowe');
+INSERT INTO author VALUES (11, 'Kurczab Marcin');
+INSERT INTO author VALUES (12, 'Kurczab Elzbieta');
+INSERT INTO author VALUES (13, 'Swida Elzbieta');
+
+INSERT INTO books VALUES (10, 'Matematyka 3', 1, 2, 3, 11, 10, 'admin');
+INSERT INTO auth_book VALUES (11, 10);
+INSERT INTO auth_book VALUES (12, 10);
+INSERT INTO auth_book VALUES (13, 10);
+
+INSERT INTO books VALUES (11, 'Matematyka 3', 1, 2, 1, 11, 10, 'admin');
+INSERT INTO auth_book VALUES (11, 11);
+INSERT INTO auth_book VALUES (12, 11);
+INSERT INTO auth_book VALUES (13, 11);
+
+INSERT INTO books VALUES (12, 'Repetytorium matura', 3, 1, 5, 12, 11, 'admin');
+INSERT INTO auth_book VALUES (10, 12);
+
 COMMIT;
