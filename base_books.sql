@@ -229,4 +229,4 @@ INSERT INTO auth_book VALUES (30, 18);
 INSERT INTO auth_book VALUES (31, 18);
 INSERT INTO auth_book VALUES (32, 18);
 
-COMMIT;
+COMMIT;;
