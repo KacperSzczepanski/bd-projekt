@@ -149,11 +149,38 @@ INSERT INTO users_tab VALUES ('admin', '$2y$10$/2x4WPlghOUi8WKJFksGYes0Xkl6YgyIc
 
 INSERT INTO publish_house VALUES (10, 'Oficyna Edukacyjna * Krzysztof Pazdro', 'ul. Koscianska 4, 01-695 Warszawa', 'handlowy@pazdro.com.pl', 225608116, 'admin');
 INSERT INTO publish_house VALUES (11, 'WSiP Wydawnictwo Szkolne i Pedagogiczne', 'al. Jerozolimskie 96, 02-017 Warszawa', 'wsip@wsip.com.pl', 801220555, 'admin');
+INSERT INTO publish_house VALUES (12, 'Nowa Era', 'al. Jerozolimskie 146d, 02-305 Warszawa', 'nowaera@nowaera.pl', 801881010, 'admin');
 
 INSERT INTO author VALUES (10, 'Opracowanie Zbiorowe');
+
 INSERT INTO author VALUES (11, 'Kurczab Marcin');
 INSERT INTO author VALUES (12, 'Kurczab Elzbieta');
 INSERT INTO author VALUES (13, 'Swida Elzbieta');
+
+INSERT INTO author VALUES (14, 'Braun Marcin');
+INSERT INTO author VALUES (15, 'Byczuk Agnieszka');
+INSERT INTO author VALUES (16, 'Byczuk Krzysztof');
+INSERT INTO author VALUES (17, 'Wojtowicz Elzbieta');
+
+INSERT INTO author VALUES (18, 'Davies Paul A.');
+INSERT INTO author VALUES (19, 'Lambert Viv');
+
+INSERT INTO author VALUES (20, 'Gromek Ewa');
+INSERT INTO author VALUES (21, 'Klos Ewa');
+INSERT INTO author VALUES (22, 'Kofta Wawrzyniec');
+INSERT INTO author VALUES (23, 'Laskowska Ewa');
+INSERT INTO author VALUES (24, 'Melson Andrzej');
+
+INSERT INTO author VALUES (25, 'Knopik Justyna');
+INSERT INTO author VALUES (26, 'Kucharska Maria');
+INSERT INTO author VALUES (27, 'Przybyl Ryszard');
+INSERT INTO author VALUES (28, 'Skomoroko Kamila');
+INSERT INTO author VALUES (29, 'Witek-Nowakowska Alina');
+
+INSERT INTO author VALUES (30, 'Guzik Marek');
+INSERT INTO author VALUES (31, 'Kozik Ryszard');
+INSERT INTO author VALUES (32, 'Zamachowski Wladyslaw');
+
 
 INSERT INTO books VALUES (10, 'Matematyka 3', 1, 2, 3, 11, 10, 'admin');
 INSERT INTO auth_book VALUES (11, 10);
@@ -167,5 +194,39 @@ INSERT INTO auth_book VALUES (13, 11);
 
 INSERT INTO books VALUES (12, 'Repetytorium matura', 3, 1, 5, 12, 11, 'admin');
 INSERT INTO auth_book VALUES (10, 12);
+
+INSERT INTO books VALUES (13, 'Zrozumiec fizyke 1', 2, 2, 1, 9, 12, 'admin');
+INSERT INTO books VALUES (14, 'Zrozumiec fizyke 1', 2, 2, 1, 13, 12, 'admin');
+INSERT INTO auth_book VALUES (14, 13);
+INSERT INTO auth_book VALUES (15, 13);
+INSERT INTO auth_book VALUES (16, 13);
+INSERT INTO auth_book VALUES (17, 13);
+INSERT INTO auth_book VALUES (14, 14);
+INSERT INTO auth_book VALUES (15, 14);
+INSERT INTO auth_book VALUES (16, 14);
+INSERT INTO auth_book VALUES (17, 14);
+
+INSERT INTO books VALUES (15, 'Przyroda 4', 8, 1, 1, 4, 11, 'admin');
+INSERT INTO auth_book VALUES (20, 15);
+INSERT INTO auth_book VALUES (21, 15);
+INSERT INTO auth_book VALUES (22, 15);
+INSERT INTO auth_book VALUES (23, 15);
+INSERT INTO auth_book VALUES (24, 15);
+
+INSERT INTO books VALUES (16, 'Planeta Nowa', 10, 1, 2, 7, 12, 'admin');
+INSERT INTO auth_book VALUES (25, 16);
+INSERT INTO auth_book VALUES (26, 16);
+INSERT INTO auth_book VALUES (27, 16);
+INSERT INTO auth_book VALUES (28, 16);
+INSERT INTO auth_book VALUES (29, 16);
+
+INSERT INTO books VALUES (17, 'Biologia na czasie 2', 6, 2, 1, 10, 10, 12, 'admin');
+INSERT INTO books VALUES (18, 'Biologia na czasie 2', 6, 2, 1, 10, 14, 12, 'admin');
+INSERT INTO auth_book VALUES (30, 17);
+INSERT INTO auth_book VALUES (31, 17);
+INSERT INTO auth_book VALUES (32, 17);
+INSERT INTO auth_book VALUES (30, 18);
+INSERT INTO auth_book VALUES (31, 18);
+INSERT INTO auth_book VALUES (32, 18);
 
 COMMIT;
