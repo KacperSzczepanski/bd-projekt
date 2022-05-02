@@ -1,3 +1,3 @@
-Projekt bazodanowy
+Project with databases
 
-Prosta strona www implementująca logowanie, aktualizację bazy poprzez stronę i skrypty php oraz zapytania.
+Simple project implementing using databases with website and php scripts.
